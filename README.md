@@ -501,9 +501,17 @@ There is to much to describe here, get info by type getprop, but you can for exa
 
 # MiSC
 
+### Try vibrator
+ 
+    echo 200 > /sys/class/timed_output/vibrator/enable
 
 ### Open settings for a specifik app
- am start -a android.settings.APPLICATION_DETAILS_SETTINGS package:<com.package.example>
+
+    am start -a android.settings.APPLICATION_DETAILS_SETTINGS package:<com.package.example>
+
+### Adopting USB-Drive
+ 
+    sm set-force-adoptable true
 
 ### Auto rotation on
 
