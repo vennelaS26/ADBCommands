@@ -1,5 +1,7 @@
 # ADB
 
+I also maintains https://wiki.gentoo.org/wiki/Android/adb - Some more cool stuff can be found on that page that I didnt add here.
+
 ### THIS PAGE IS FAR AWAY FROM DONE, UPDATING DAILY SO COME BACK L8R FOR MORE CMDS!
 
 This is my private cheatsheet for ADB that I have decided to share since there is few good wikis for adb out there that has all in one place, so hopefully someone will enjoy this repo.
