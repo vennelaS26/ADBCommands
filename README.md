@@ -590,6 +590,14 @@ There is to much to describe here, get info by type getprop, but you can for exa
 
     am start com.huawei.android.projectmenu/com.huawei.android.projectmenu.ProjectMenuActivity
 
+### Auto answer any call after 2 seconds:
+
+    setprop persist.sys.tel.autoanswer.ms 2000
+
+### Turn off auto answer:
+ 
+    setprop persist.sys.tel.autoanswer.ms 0
+
 ### Unplug AC:
 
     dumpsys battery unplug
