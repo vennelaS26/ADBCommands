@@ -474,7 +474,7 @@ Settings are sorted for root and user:
     
 ## Print IMEI 1 & 2 (Method 2)
 
-### # Imei 1:
+#### Imei 1:
     
     service call iphonesubinfo 3 i32 1 | grep -oE '[0-9a-f]{8} ' | while read hex; do echo -ne "\u${hex:4:4}\u${hex:0:4}"; done; echo          
 
@@ -484,7 +484,7 @@ Settings are sorted for root and user:
     
 ### List how many times we booted device:
 
-    ssettings list global|grep "boot_count="|cut -d= -f2|head -n 1|xargs echo "Booted:"|sed 's/$/ times/g'
+    settings list global|grep "boot_count="|cut -d= -f2|head -n 1|xargs echo "Booted:"|sed 's/$/ times/g'
     
 ### Send SMS:
 
