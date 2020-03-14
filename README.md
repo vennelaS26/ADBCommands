@@ -466,6 +466,26 @@ Settings are sorted for root and user:
     
     am start --ez show_night_mode true com.android.systemui/.tuner.TunerActivity
 
+# IMEI:
+
+### Print IMEI:
+
+    service call iphonesubinfo 1| cut -d "'" -f2| grep -Eo '[0-9]'| xargs| sed 's/\ //g'  
+    
+## Print IMEI 1 & 2
+
+Imei 1:
+    
+    service call iphonesubinfo 3 i32 1 | grep -oE '[0-9a-f]{8} ' | while read hex; do echo -ne "\u${hex:4:4}\u${hex:0:4}"; done; echo          
+
+Imei 2: 
+       
+    service call iphonesubinfo 3 i32 2 | grep -oE '[0-9a-f]{8} ' | while read hex; do echo -ne "\u${hex:4:4}\u${hex:0:4}"; done; echo       
+    
+# List how many times we booted device:
+
+    ssettings list global|grep "boot_count="|cut -d= -f2|head -n 1|xargs echo "Booted:"|sed 's/$/ times/g'
+    
 ### Send SMS:
 
     am broadcast -a com.whereismywifeserver.intent.TEST --es sms_body "test from adb"
