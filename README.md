@@ -458,31 +458,31 @@ Settings are sorted for root and user:
 
     am start -a android.intent.action.VIEW -d https://github.com/wuseman
 
-# Open google maps with coordinates
+### Open google maps with coordinates
 
     am start -a android.intent.action.VIEW -d "geo:46.457398,-119.407305"
 
-# Enabling Night Mode (If Supported)
+### Enabling Night Mode (If Supported)
     
     am start --ez show_night_mode true com.android.systemui/.tuner.TunerActivity
 
 # IMEI:
 
-### Print IMEI:
+### Print IMEI (Method 1)
 
     service call iphonesubinfo 1| cut -d "'" -f2| grep -Eo '[0-9]'| xargs| sed 's/\ //g'  
     
-## Print IMEI 1 & 2
+## Print IMEI 1 & 2 (Method 2)
 
-Imei 1:
+### # Imei 1:
     
     service call iphonesubinfo 3 i32 1 | grep -oE '[0-9a-f]{8} ' | while read hex; do echo -ne "\u${hex:4:4}\u${hex:0:4}"; done; echo          
 
-Imei 2: 
+#### Imei 2: 
        
     service call iphonesubinfo 3 i32 2 | grep -oE '[0-9a-f]{8} ' | while read hex; do echo -ne "\u${hex:4:4}\u${hex:0:4}"; done; echo       
     
-# List how many times we booted device:
+### List how many times we booted device:
 
     ssettings list global|grep "boot_count="|cut -d= -f2|head -n 1|xargs echo "Booted:"|sed 's/$/ times/g'
     
