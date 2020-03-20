@@ -514,6 +514,8 @@ Settings are sorted for root and user:
 ### Trick device that setup already has been done:
 
      content insert --uri content://settings/secure --bind name:s:user_setup_complete --bind value:s:1
+     am start -n com.google.android.gsf.login/
+     am start -n com.google.android.gsf.login.LoginActivity
 
 # GETPROP
 
