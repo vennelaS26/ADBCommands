@@ -1,0 +1,128 @@
+1. Basic Device Connection and Info
+Check if device is connected:
+
+bash
+Copy code
+adb devices
+Lists all connected devices.
+
+Get device information:
+
+bash
+Copy code
+adb shell getprop
+Displays detailed device information like the model, version, etc.
+
+2. Installing and Uninstalling Apps
+Install an APK:
+
+bash
+Copy code
+adb install <path-to-apk>
+Installs an APK file on the connected device.
+
+Uninstall an app:
+
+bash
+Copy code
+adb uninstall <package-name>
+Uninstalls an app from the device.
+
+3. Logcat (Log Outputs)
+Capture logs:
+
+bash
+Copy code
+adb logcat
+Displays real-time system logs (logs from apps, system events, etc.).
+
+Save logs to a file:
+
+bash
+Copy code
+adb logcat -d > log.txt
+Saves logs to a file.
+
+4. Shell Commands for Device Interaction
+Launch an app's main activity:
+
+bash
+Copy code
+adb shell am start -n <package-name>/<activity-name>
+Launches the main activity of the app.
+
+Simulate a button press (e.g., home button):
+
+bash
+Copy code
+adb shell input keyevent KEYCODE_HOME
+Simulates pressing the home button.
+
+Simulate a tap or swipe:
+
+bash
+Copy code
+adb shell input tap <x> <y>
+adb shell input swipe <x1> <y1> <x2> <y2>
+Simulates touch events like tapping or swiping.
+
+5. Managing App Data
+Clear app data:
+
+bash
+Copy code
+adb shell pm clear <package-name>
+Clears app data (useful for testing app behavior from a fresh state).
+
+Force stop an app:
+
+bash
+Copy code
+adb shell am force-stop <package-name>
+Force stops a running app.
+
+6. Screen and UI Interaction
+Take a screenshot:
+
+bash
+Copy code
+adb shell screencap -p /sdcard/screenshot.png
+adb pull /sdcard/screenshot.png <local-path>
+Captures a screenshot and saves it locally.
+
+Record screen:
+
+bash
+Copy code
+adb shell screenrecord /sdcard/demo.mp4
+Records the screen on the device.
+
+7. Network Testing
+Enable/Disable airplane mode:
+bash
+Copy code
+adb shell settings put global airplane_mode_on 1  # Enable
+adb shell settings put global airplane_mode_on 0  # Disable
+adb shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state true  # Enable
+adb shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false  # Disable
+8. App Debugging
+Start app in debug mode:
+
+bash
+Copy code
+adb shell am start -n <package-name>/<activity-name> -D
+Starts the app in debug mode.
+
+Enable/Disable debugging:
+
+bash
+Copy code
+adb shell setprop log.tag.<your-app> DEBUG
+adb shell setprop log.tag.<your-app> INFO
+9. Test Automation and ADB Scripting
+Run an ADB script or command sequence:
+bash
+Copy code
+adb shell <command-list>
+Executes a series of commands on the device through a script.
+These commands help QA teams perform various tasks like installing/uninstalling apps, managing app data, automating interactions, debugging, and ensuring devices are functioning properly for testing scenarios.
