@@ -1,15 +1,9 @@
 1. Basic Device Connection and Info
 Check if device is connected:
-
-bash
-Copy code
 adb devices
 Lists all connected devices.
 
 Get device information:
-
-bash
-Copy code
 adb shell getprop
 Displays detailed device information like the model, version, etc.
 
@@ -30,9 +24,6 @@ Uninstalls an app from the device.
 
 3. Logcat (Log Outputs)
 Capture logs:
-
-bash
-Copy code
 adb logcat
 Displays real-time system logs (logs from apps, system events, etc.).
 
